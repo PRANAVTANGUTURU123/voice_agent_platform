@@ -1,0 +1,511 @@
+{
+  "summary": {
+    "model": "openai/gpt-oss-120b",
+    "n_questions": 30,
+    "answer_accuracy_judge_pct": 90.0,
+    "answer_accuracy_keywords_pct": 80.0,
+    "tool_accuracy_pct": 100.0,
+    "tool_first_choice_accuracy_pct": 100.0,
+    "by_tool": {
+      "calculator": {
+        "n": 6,
+        "answer_judge_pct": 100.0,
+        "tool_pct": 100.0
+      },
+      "pdf_qa": {
+        "n": 18,
+        "answer_judge_pct": 88.9,
+        "tool_pct": 100.0
+      },
+      "web_search": {
+        "n": 6,
+        "answer_judge_pct": 83.3,
+        "tool_pct": 100.0
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "pdf-01",
+      "question": "How many identical layers are in the Transformer's encoder stack?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "Six (N = 6) identical layers.",
+      "answer": "The original Transformer paper says the encoder is built from six identical layers. (attention_is_all_you_need.pdf, page 3)",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 2.89,
+      "error": null
+    },
+    {
+      "id": "pdf-02",
+      "question": "How many attention heads does the base Transformer model use?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "Eight heads (h = 8).",
+      "answer": "The original Transformer base model uses eight parallel attention heads. (attention_is_all_you_need.pdf, page 5)",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 0.94,
+      "error": null
+    },
+    {
+      "id": "pdf-03",
+      "question": "In the Transformer paper, what is the dimension of the keys and values for each attention head?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "64 (dk = dv = dmodel/h = 64).",
+      "answer": "Each attention head uses keys and values that are sixty‑four dimensions long (so dk equals dv equals sixty‑four). (attention_is_all_you_need.pdf, page 5)",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 1.24,
+      "error": null
+    },
+    {
+      "id": "pdf-04",
+      "question": "What is the inner-layer dimensionality of the Transformer's position-wise feed-forward network?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "2048 (with input/output dimension dmodel = 512).",
+      "answer": "The inner‑layer of the Transformer's position‑wise feed‑forward network has a dimensionality of two thousand forty‑eight (2048) (attention_is_all_you_need.pdf, page 5).",
+      "judge_ok": false,
+      "keywords_ok": true,
+      "latency_s": 1.06,
+      "error": null
+    },
+    {
+      "id": "pdf-05",
+      "question": "What BLEU score did the big Transformer achieve on WMT 2014 English-to-German?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "28.4 BLEU.",
+      "answer": "The big Transformer got a BLEU score of twenty‑eight point four on the WMT 2014 English‑to‑German test (attention_is_all_you_need.pdf, page 8).",
+      "judge_ok": true,
+      "keywords_ok": false,
+      "latency_s": 1.14,
+      "error": null
+    },
+    {
+      "id": "pdf-06",
+      "question": "What BLEU score did the Transformer get on the WMT 2014 English-to-French task?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "41.8 BLEU.",
+      "answer": "The Transformer’s big model scored about forty‑one BLEU on the WMT 2014 English‑to‑French test (roughly 41.0). (attention_is_all_you_need.pdf, page 8)",
+      "judge_ok": false,
+      "keywords_ok": false,
+      "latency_s": 1.37,
+      "error": null
+    },
+    {
+      "id": "pdf-07",
+      "question": "Which optimizer was used to train the Transformer and what were its beta values?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "Adam with beta1 = 0.9 and beta2 = 0.98 (epsilon = 1e-9).",
+      "answer": "The Transformer was trained with the Adam optimizer, using beta one of 0.9 and beta two of 0.98. (attention_is_all_you_need.pdf, page 7)",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 1.12,
+      "error": null
+    },
+    {
+      "id": "pdf-08",
+      "question": "How many warmup steps were used in the Transformer's learning rate schedule?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "4000 warmup steps.",
+      "answer": "The original Transformer paper used four thousand warm‑up steps in its learning‑rate schedule. (attention_is_all_you_need.pdf, page 7)",
+      "judge_ok": true,
+      "keywords_ok": false,
+      "latency_s": 1.02,
+      "error": null
+    },
+    {
+      "id": "pdf-09",
+      "question": "What hardware was the Transformer trained on and how long did the base model take?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "One machine with 8 NVIDIA P100 GPUs; the base model trained for 100,000 steps, about 12 hours.",
+      "answer": "The base Transformer was trained on a single machine with eight NVIDIA P‑100 GPUs. It ran for one hundred thousand steps, which took about twelve hours in total. (attention_is_all_you_need.pdf, page 7)",
+      "judge_ok": true,
+      "keywords_ok": false,
+      "latency_s": 1.22,
+      "error": null
+    },
+    {
+      "id": "pdf-10",
+      "question": "What label smoothing value was used when training the Transformer?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "Label smoothing of 0.1.",
+      "answer": "The paper says they used label smoothing with epsilon ls equal to point one during training (attention_is_all_you_need.pdf, page 8).",
+      "judge_ok": true,
+      "keywords_ok": false,
+      "latency_s": 1.09,
+      "error": null
+    },
+    {
+      "id": "pdf-11",
+      "question": "What are the four functions of the NIST AI Risk Management Framework core?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "Govern, Map, Measure, and Manage.",
+      "answer": "The NIST AI Risk Management Framework core is organized around four high‑level functions: Govern, Map, Measure, and Manage. These guide organizations in governing AI, mapping risks, measuring performance, and managing ongoing risk. (nist_ai_rmf_1.0.pdf, page 25)",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 1.52,
+      "error": null
+    },
+    {
+      "id": "pdf-12",
+      "question": "Which NIST AI RMF function is described as cross-cutting and infused throughout the other functions?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "Govern.",
+      "answer": "The cross‑cutting function is Govern, which is meant to be infused throughout the other three functions (NIST AI RMF, page 5).",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 1.41,
+      "error": null
+    },
+    {
+      "id": "pdf-13",
+      "question": "According to the NIST AI RMF, what are the three major categories of AI bias?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "Systemic, computational and statistical, and human-cognitive bias.",
+      "answer": "The NIST AI RMF groups AI bias into three big categories: systemic bias, computational and statistical bias, and human‑cognitive bias. (nist_ai_rmf_1.0.pdf, page 23)",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 1.15,
+      "error": null
+    },
+    {
+      "id": "pdf-14",
+      "question": "When was version 1.0 of the NIST AI Risk Management Framework released?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa",
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "January 2023.",
+      "answer": "Version 1.0 of the NIST AI Risk Management Framework was published in January 2023 (NIST AI 100‑1). (nist_ai_rmf_1.0.pdf, page 2)",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 8.07,
+      "error": null
+    },
+    {
+      "id": "pdf-15",
+      "question": "Which law directed NIST to develop the AI Risk Management Framework?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa",
+        "web_search"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "The National Artificial Intelligence Initiative Act of 2020 (P.L. 116-283).",
+      "answer": "The National Artificial Intelligence Initiative Act of 2020 directed NIST to develop the AI Risk Management Framework. (web search)",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 10.68,
+      "error": null
+    },
+    {
+      "id": "pdf-16",
+      "question": "What is the name of the online companion resource to the NIST AI RMF?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "The NIST AI RMF Playbook.",
+      "answer": "The online companion is called the NIST AI RMF Playbook (nist_ai_rmf_1.0.pdf, page 26).",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 1.54,
+      "error": null
+    },
+    {
+      "id": "pdf-17",
+      "question": "List the characteristics of trustworthy AI in the NIST framework.",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "Valid and reliable; safe; secure and resilient; accountable and transparent; explainable and interpretable; privacy-enhanced; fair with harmful bias managed.",
+      "answer": "The NIST AI Risk Management Framework lists trustworthy AI as having these traits: it must be valid and reliable, safe, secure and resilient, accountable and transparent, explainable and interpretable, privacy‑enhanced, and fair with harmful bias managed (NIST AI RMF 1.0, page 17).",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 3.25,
+      "error": null
+    },
+    {
+      "id": "pdf-18",
+      "question": "In the uploaded Transformer paper, why are the dot products scaled by one over the square root of dk?",
+      "expected_tool": "pdf_qa",
+      "tools_used": [
+        "pdf_qa"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "For large dk the dot products grow large, pushing the softmax into regions with extremely small gradients; scaling counteracts this.",
+      "answer": "The authors found that when the key and query vectors are high‑dimensional, their dot products tend to become large in magnitude. Those large values push the softmax into regions where its gradients are tiny, which makes learning harder. By dividing each dot product by the square root of the key dimension dk, the scale of the scores stays roughly constant, keeping the softmax stable and preserving useful gradients. (attention_is_all_you_need.pdf, page 4)",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 3.63,
+      "error": null
+    },
+    {
+      "id": "calc-01",
+      "question": "What is 17 times 23?",
+      "expected_tool": "calculator",
+      "tools_used": [
+        "calculator"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "391",
+      "answer": "Seventeen times twenty‑three equals three hundred ninety‑one.",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 1.13,
+      "error": null
+    },
+    {
+      "id": "calc-02",
+      "question": "What is the square root of 1024?",
+      "expected_tool": "calculator",
+      "tools_used": [
+        "calculator"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "32",
+      "answer": "The square root of 1024 is 32.",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 1.05,
+      "error": null
+    },
+    {
+      "id": "calc-03",
+      "question": "What is 15 percent of 240?",
+      "expected_tool": "calculator",
+      "tools_used": [
+        "calculator"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "36",
+      "answer": "Thirty‑six.",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 0.86,
+      "error": null
+    },
+    {
+      "id": "calc-04",
+      "question": "What is 2 to the power of 20?",
+      "expected_tool": "calculator",
+      "tools_used": [
+        "calculator"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "1,048,576",
+      "answer": "Two to the twentieth power is one million forty‑eight thousand five hundred seventy‑six.",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 0.91,
+      "error": null
+    },
+    {
+      "id": "calc-05",
+      "question": "Add 125 and 375, divide the result by 4, then multiply by 3. What do you get?",
+      "expected_tool": "calculator",
+      "tools_used": [
+        "calculator"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "375",
+      "answer": "The result is three hundred seventy‑five.",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 1.11,
+      "error": null
+    },
+    {
+      "id": "calc-06",
+      "question": "If I work 3.5 hours at 1,240 rupees per hour, how much do I earn?",
+      "expected_tool": "calculator",
+      "tools_used": [
+        "calculator"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "4,340 rupees",
+      "answer": "You’d earn about four thousand three hundred forty rupees.",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 1.1,
+      "error": null
+    },
+    {
+      "id": "web-01",
+      "question": "Who won the 2026 FIFA World Cup?",
+      "expected_tool": "web_search",
+      "tools_used": [
+        "web_search"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "Spain (beating Argentina in the final).",
+      "answer": "I don’t know.",
+      "judge_ok": false,
+      "keywords_ok": false,
+      "latency_s": 3.06,
+      "error": null
+    },
+    {
+      "id": "web-02",
+      "question": "Who won the 2025 Formula One World Drivers' Championship?",
+      "expected_tool": "web_search",
+      "tools_used": [
+        "web_search"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "Lando Norris.",
+      "answer": "Lando Norris won the 2025 Formula One World Drivers’ Championship.",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 3.13,
+      "error": null
+    },
+    {
+      "id": "web-03",
+      "question": "Who won the 2025 Nobel Prize in Literature?",
+      "expected_tool": "web_search",
+      "tools_used": [
+        "web_search"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "László Krasznahorkai.",
+      "answer": "The 2025 Nobel Prize in Literature was awarded to the Hungarian novelist László Krasznahorkai. He was recognized for his compelling and visionary body of work.",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 4.3,
+      "error": null
+    },
+    {
+      "id": "web-04",
+      "question": "Who won the 2024 Nobel Prize in Physics?",
+      "expected_tool": "web_search",
+      "tools_used": [
+        "web_search"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "John Hopfield and Geoffrey Hinton.",
+      "answer": "The 2024 Nobel Prize in Physics was awarded to John J. Hopfield of Princeton and Geoffrey Hinton of the University of Toronto for their foundational work on artificial neural networks.",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 3.65,
+      "error": null
+    },
+    {
+      "id": "web-05",
+      "question": "Which team won the 2025 ICC Champions Trophy?",
+      "expected_tool": "web_search",
+      "tools_used": [
+        "web_search"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "India (beating New Zealand in the final).",
+      "answer": "India won the 2025 ICC Champions Trophy, beating New Zealand in the final.",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 5.01,
+      "error": null
+    },
+    {
+      "id": "web-06",
+      "question": "Who is the current Secretary-General of the United Nations?",
+      "expected_tool": "web_search",
+      "tools_used": [
+        "web_search"
+      ],
+      "tool_used_ok": true,
+      "first_choice_ok": true,
+      "expected_answer": "António Guterres.",
+      "answer": "The current Secretary‑General of the United Nations is António Guterres, who has been in office since the first of January 2017.",
+      "judge_ok": true,
+      "keywords_ok": true,
+      "latency_s": 5.67,
+      "error": null
+    }
+  ]
+}

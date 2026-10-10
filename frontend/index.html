@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Real-Time Voice Agent</title>
+  <style>
+    :root {
+      --bg: #f6f7f9; --panel: #ffffff; --text: #1d2330; --muted: #6b7280;
+      --border: #e3e6eb; --accent: #2f6fed; --accent-weak: #e8effd;
+      --user: #eef2f7; --danger: #d64545; --ok: #1f9d55;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #12151b; --panel: #1a1e26; --text: #e6e8ec; --muted: #9aa3b2;
+        --border: #2a303b; --accent: #6b9bff; --accent-weak: #1f2a40; --user: #232934;
+      }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+    main { max-width: 820px; margin: 0 auto; padding: 24px 16px 48px; display: grid; gap: 16px; }
+    h1 { font-size: 22px; margin: 0; }
+    .sub { color: var(--muted); margin: 2px 0 0; font-size: 14px; }
+    .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+    .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    button { font: inherit; border: 1px solid var(--border); background: var(--panel); color: var(--text); padding: 8px 14px; border-radius: 8px; cursor: pointer; }
+    button:disabled { opacity: .5; cursor: default; }
+    button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    #mic { width: 64px; height: 64px; border-radius: 50%; font-size: 26px; padding: 0; }
+    #mic.on { background: var(--danger); border-color: var(--danger); color: #fff; }
+    #status { font-weight: 600; }
+    #status[data-state="speaking-user"] { color: var(--ok); }
+    #status[data-state="thinking"], #status[data-state="speaking-agent"] { color: var(--accent); }
+    .files { color: var(--muted); font-size: 14px; }
+    #log { display: grid; gap: 10px; max-height: 55vh; overflow-y: auto; }
+    .msg { padding: 10px 12px; border-radius: 10px; max-width: 90%; white-space: pre-wrap; }
+    .msg.user { background: var(--user); justify-self: end; }
+    .msg.agent { background: var(--accent-weak); }
+    .msg.sys { color: var(--muted); font-size: 13px; justify-self: center; background: none; padding: 0; }
+    .tools { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+    .metrics { font-size: 12px; color: var(--muted); margin-top: 6px; font-variant-numeric: tabular-nums; }
+    form.ask { display: flex; gap: 8px; }
+    form.ask input { flex: 1; min-width: 0; font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+    .hint { color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Real-Time Voice Agent</h1>
+    <p class="sub">Upload PDFs, then ask questions by voice. The agent can search your PDFs, the web, and do math.</p>
+  </header>
+
+  <section class="panel">
+    <div class="row">
+      <input id="pdfInput" type="file" accept="application/pdf,.pdf" multiple />
+      <button id="uploadBtn" class="primary">Upload PDFs</button>
+      <span id="uploadStatus" class="hint"></span>
+    </div>
+    <p id="fileList" class="files">No PDFs uploaded yet.</p>
+  </section>
+
+  <section class="panel">
+    <div class="row">
+      <button id="mic" title="Start / stop microphone" aria-label="Toggle microphone">🎤</button>
+      <div>
+        <div id="status" data-state="idle">Mic off</div>
+        <div class="hint">Speak naturally; pause briefly to finish. Talk over the agent to interrupt it.</div>
+        <label class="hint"><input type="checkbox" id="headphones" /> 🎧 I'm using headphones (turns off echo cancellation for cleaner interruptions)</label>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div id="log" aria-live="polite"></div>
+    <form class="ask" id="askForm" style="margin-top:12px">
+      <input id="askInput" placeholder="…or type a question" autocomplete="off" />
+      <button class="primary" type="submit">Send</button>
+    </form>
+  </section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>

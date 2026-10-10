@@ -1,0 +1,16 @@
+# Secrets
+.env
+apis.md
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Runtime data
+data/indexes/
+data/uploads/
+eval/results/*.tmp
+*.wav
+*.mp3

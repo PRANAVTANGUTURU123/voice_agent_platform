@@ -1,0 +1,216 @@
+{
+  "summary": {
+    "n_turns": 18,
+    "model": "openai/gpt-oss-120b",
+    "whisper": "base.en",
+    "vad_silence_window_ms": 500,
+    "stages": {
+      "stt_done_ms": {
+        "p50": 1797,
+        "p95": 3331
+      },
+      "first_llm_token_ms": {
+        "p50": 3397,
+        "p95": 6387
+      },
+      "first_tts_audio_ms": {
+        "p50": 4555,
+        "p95": 7999
+      },
+      "llm_ttft_after_stt_ms": {
+        "p50": 1347,
+        "p95": 4744
+      },
+      "tts_first_chunk_after_token_ms": {
+        "p50": 842,
+        "p95": 1978
+      }
+    },
+    "mean_first_tts_audio_ms": 5085
+  },
+  "runs": [
+    {
+      "question": "How many layers does the Transformer encoder have?",
+      "stt_ms": 2038.4,
+      "first_token_ms": 3422.0,
+      "first_audio_ms": 5629.8,
+      "total_ms": 8076.6,
+      "tools": [
+        "pdf_qa"
+      ]
+    },
+    {
+      "question": "What optimizer was used to train the Transformer?",
+      "stt_ms": 2678.4,
+      "first_token_ms": 4660.8,
+      "first_audio_ms": 5849.2,
+      "total_ms": 9215.2,
+      "tools": [
+        "pdf_qa",
+        "pdf_qa"
+      ]
+    },
+    {
+      "question": "What are the four functions of the NIST AI risk management framework?",
+      "stt_ms": 2265.1,
+      "first_token_ms": 3295.8,
+      "first_audio_ms": 4529.7,
+      "total_ms": 9908.3,
+      "tools": [
+        "pdf_qa"
+      ]
+    },
+    {
+      "question": "What is seventeen times twenty three?",
+      "stt_ms": 1547.6,
+      "first_token_ms": 2675.2,
+      "first_audio_ms": 3719.5,
+      "total_ms": 3994.4,
+      "tools": [
+        "calculator"
+      ]
+    },
+    {
+      "question": "What is the square root of one thousand and twenty four?",
+      "stt_ms": 1790.5,
+      "first_token_ms": 2944.6,
+      "first_audio_ms": 4580.3,
+      "total_ms": 5048.4,
+      "tools": [
+        "calculator"
+      ]
+    },
+    {
+      "question": "Who won the most recent FIFA World Cup?",
+      "stt_ms": 1344.4,
+      "first_token_ms": 6813.5,
+      "first_audio_ms": 8454.0,
+      "total_ms": 11060.5,
+      "tools": [
+        "web_search"
+      ]
+    },
+    {
+      "question": "How many layers does the Transformer encoder have?",
+      "stt_ms": 3131.7,
+      "first_token_ms": 4824.3,
+      "first_audio_ms": 5622.2,
+      "total_ms": 10090.3,
+      "tools": [
+        "pdf_qa"
+      ]
+    },
+    {
+      "question": "What optimizer was used to train the Transformer?",
+      "stt_ms": 2179.4,
+      "first_token_ms": 5981.4,
+      "first_audio_ms": 7919.1,
+      "total_ms": 10930.6,
+      "tools": [
+        "pdf_qa",
+        "pdf_qa"
+      ]
+    },
+    {
+      "question": "What are the four functions of the NIST AI risk management framework?",
+      "stt_ms": 2268.8,
+      "first_token_ms": 3483.0,
+      "first_audio_ms": 4317.3,
+      "total_ms": 9166.9,
+      "tools": [
+        "pdf_qa"
+      ]
+    },
+    {
+      "question": "What is seventeen times twenty three?",
+      "stt_ms": 4459.0,
+      "first_token_ms": 5889.9,
+      "first_audio_ms": 7404.6,
+      "total_ms": 7777.2,
+      "tools": [
+        "calculator"
+      ]
+    },
+    {
+      "question": "What is the square root of one thousand and twenty four?",
+      "stt_ms": 2072.6,
+      "first_token_ms": 3064.3,
+      "first_audio_ms": 3822.6,
+      "total_ms": 4152.6,
+      "tools": [
+        "calculator"
+      ]
+    },
+    {
+      "question": "Who won the most recent FIFA World Cup?",
+      "stt_ms": 1668.5,
+      "first_token_ms": 4105.5,
+      "first_audio_ms": 4924.5,
+      "total_ms": 6232.4,
+      "tools": [
+        "web_search"
+      ]
+    },
+    {
+      "question": "How many layers does the Transformer encoder have?",
+      "stt_ms": 1277.4,
+      "first_token_ms": 2588.1,
+      "first_audio_ms": 3359.2,
+      "total_ms": 6462.0,
+      "tools": [
+        "pdf_qa"
+      ]
+    },
+    {
+      "question": "What optimizer was used to train the Transformer?",
+      "stt_ms": 1172.8,
+      "first_token_ms": 3371.1,
+      "first_audio_ms": 4221.7,
+      "total_ms": 6653.1,
+      "tools": [
+        "pdf_qa",
+        "pdf_qa"
+      ]
+    },
+    {
+      "question": "What are the four functions of the NIST AI risk management framework?",
+      "stt_ms": 1421.2,
+      "first_token_ms": 2643.8,
+      "first_audio_ms": 3431.1,
+      "total_ms": 6988.6,
+      "tools": [
+        "pdf_qa"
+      ]
+    },
+    {
+      "question": "What is seventeen times twenty three?",
+      "stt_ms": 1803.4,
+      "first_token_ms": 2871.4,
+      "first_audio_ms": 3619.5,
+      "total_ms": 3927.1,
+      "tools": [
+        "calculator"
+      ]
+    },
+    {
+      "question": "What is the square root of one thousand and twenty four?",
+      "stt_ms": 1450.8,
+      "first_token_ms": 2336.7,
+      "first_audio_ms": 3085.0,
+      "total_ms": 3417.0,
+      "tools": [
+        "calculator"
+      ]
+    },
+    {
+      "question": "Who won the most recent FIFA World Cup?",
+      "stt_ms": 1695.3,
+      "first_token_ms": 6311.9,
+      "first_audio_ms": 7043.4,
+      "total_ms": 8406.0,
+      "tools": [
+        "web_search"
+      ]
+    }
+  ]
+}
